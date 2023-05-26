@@ -3,7 +3,7 @@ import { Knex } from 'knex'
 
 declare module 'knex/types/tables' {
   export interface Tables {
-    transaction: {
+    transactions: {
       id: string
       title: string
       amount: number
