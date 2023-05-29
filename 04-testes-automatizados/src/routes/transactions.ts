@@ -5,24 +5,27 @@ import { knex } from '../database'
 import { checkSessionIdExist } from '../middlewares/check-session-id-exists'
 
 // Cookies <-> Formas da gente manter contexto entre requisições
-//
+
+// TESTES -
+// UNITÁRIOS: Unidade da sua aplicação <-> testa pequenos pedaços
+// INTEGRAÇÃO: Comunicação entre duas ou mais unidades
+// e2e - ponta a ponta: Simulam um usuário operando na nossa aplicação
+
+// Pirâmide de testes: E2E (Não depende de nenhuma tecnologia, não dependendem arquitetura)
 
 export async function transactionsRoutes(app: FastifyInstance) {
   // É um pre handler global
   // Antes de qualquer plugin ele é rodado
 
-  app.addHook('preHandler', async (request, reply) => {
-    console.log('Eai Meu Bem')
-  }) 
-  
+  // app.addHook('preHandler', async (request, reply) => {
+  //   console.log('Eai Meu Bem')
+  // })
 
   app.get(
     '/',
-
     {
       preHandler: [checkSessionIdExist],
     },
-
     async (request, reply) => {
       const { sessionId } = request.cookies
 
