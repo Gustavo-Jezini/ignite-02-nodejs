@@ -1,6 +1,14 @@
-db/app.db
+# Dependencies
 node_modules
 .vscode
 
+
+# Database
+db/*.db
+
+# Environment
 .env
 .env.test
+
+# Build
+build
